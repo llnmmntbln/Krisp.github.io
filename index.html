@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="sr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="x-icon"
+        href="https://raw.githubusercontent.com/llnmntbln/pics/main/ProfilePictureMaker%20(3).png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        :root {
+            --first-color: rgb(20 20 20);
+            --second-color: #1fb9b0;
+            --third-color: rgb(135 135 135);
+            --hover-color: #1fb9b0;
+            --body-bg-color: #e9e9e9;
+            --card-bg-color: #f00;
+            --bar-color: #d1d1d1;
+            --title-shadow-color: #000;
+            --education-section-color: rgb(177, 177, 177);
+            --footer-bg-color: rgb(51 56 59);
+            --bg-transparent-color: rgb(209 209 209 / 3%);
+            --transparent-color-01: rgba(0, 0, 0, 0.1);
+            --button-color: rgb(88, 88, 88);
+            --line-color: #1fb9b0;
+            --color-filter: invert(1);
+            --box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+            --small-font-size: 0.9em;
+            --normal-font-size: 1em;
+            --scroll-down-color: #fff;
+            --scroll-up-color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        element.style {
+            border-right: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            color: var(--first-color);
+            background: var(--body-bg-color);
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 2rem 0 0 0;
+            transition: 3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--first-color);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: rgb(138, 136, 136);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(206, 206, 206);
+            border-radius: 2em;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1fb9b0;
+        }
+
+        header {
+            z-index: 99999;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(20px);
+            transition: .6s ease;
+        }
+
+        header.sticky {
+            background: rgba(218, 217, 217, 0.363);
+            box-shadow: 1px;
+        }
+
+        .nav-bar {
+            position: relative;
+            height: calc(4rem + 1rem);
+            max-width: 1250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+            transition: 1s ease;
+        }
+
+        header.sticky .nav-bar {
+            height: calc(2.5rem + 1rem);
+        }
+
+        .nav-bar .logo {
+            color: var(--first-color);
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .nav-items a {
+            color: var(--first-color);
+            font-size: var(--normal-font-size);
+            font-weight: 500;
+        }
+
+        .nav-items a:not(last-child) {
+            margin-right: 50px;
+        }
+
+        .nav-items a:hover {
+            color: var(--second-color);
+        }
+
+        .nav-menu-btn {
+            display: none;
+        }
+
+        .home {
+            position: relative;
+            max-width: 1250px;
+            min-height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 2rem;
+            flex-direction: column;
+        }
+
+        .home .home-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: auto;
+        }
+
+        .home-container .media-icons {
+            display: flex;
+            flex-direction: column;
+            margin-right: 40px;
+        }
+
+        .home-container .media-icons a {
+            color: var(--first-color);
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .home-container .media-icons a:hover {
+            color: var(--hover-color);
+        }
+
+        .home-container .info h2 {
+            font-size: 4em;
+            font-weight: 600;
+            line-height: 70px;
+        }
+
+        .home-container .info h3 {
+            color: var(--line-color);
+            font-size: 1.3em;
+            font-weight: 600;
+            line-height: 40px;
+        }
+
+        .home-container .info p {
+            color: var(--third-color);
+            font-size: var(--normal-font-size);
+            max-width: 350px;
+        }
+
+        .btn {
+            background: var(--button-color);
+            color: var(--scroll-down-color);
+            font-size: 1em;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 25px;
+            padding: 20px 30px;
+            letter-spacing: 1px;
+            border-radius: 10px;
+        }
+
+        .btn:hover {
+            background: var(--hover-color);
+        }
+
+        .home-container .home-img {
+            position: relative;
+        }
+
+        .home-container .home-img img {
+            width: 100%;
+            margin-top: -15%;
+            transform: translate(0, 0);
+        }
+
+        .home .scroll-down {
+            color: var(--third-color);
+            font-size: 1em;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        .home .scroll-down i {
+            color: var(--third-color);
+            font-size: 1.2em;
+            animation: arrow-down ease 1.2s infinite;
+        }
+
+        @keyframes arrow-down {
+            0% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(10px);
+            }
+        }
+
+        .section {
+            position: relative;
+            max-width: 1150px;
+            margin: auto;
+            padding: 0rem 2rem 5rem;
+            overflow: hidden;
+        }
+
+        .footer-distributed {
+            background: var(--footer-bg-color);
+            box-shadow: 0 1px 1px 0 rgb(0 0 0 / 12%);
+            width: 100%;
+            margin-top: 3vh;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 75px 30px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .footer-distributed .footer-left {
+            width: 40%;
+        }
+
+        .footer-distributed h3 {
+            color: var(--scroll-down-color);
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span {
+            color: var(--line-color);
+        }
+
+
+        .footer-distributed .footer-links {
+            color: var(--scroll-down-color);
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            font-weight: 400;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-distributed .footer-company-name {
+            color: var(--line-color);
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i {
+            background-color: var(--footer-bg-color);
+            color: var(--line-color);
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: var(--scroll-down-color);
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-distributed .footer-center p a {
+            color: var(--line-color);
+            text-decoration: none;
+            ;
+        }
+
+        .footer-distributed .footer-links a:before {
+            content: "|";
+            font-weight: 300;
+            font-size: 20px;
+            left: 0;
+            color: var(--scroll-down-color);
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+            content: none;
+        }
+
+
+        .footer-distributed .footer-right {
+            width: 20%;
+        }
+
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: var(--third-color);
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: var(--scroll-down-color);
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: var(--footer-bg-color);
+            border-radius: 2px;
+            font-size: 20px;
+            color: #1fb9b0;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+
+        @media screen and (max-width: 1070px) {
+            .nav-items {
+                position: relative;
+                background: rgb(160, 160, 160);
+                width: 600px;
+                max-width: 600px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                border-radius: 10px;
+                box-shadow: var(--box-shadow);
+                transform: translateY(-50px);
+                transition: .3s ease;
+            }
+
+            .navigation.active .nav-items {
+                transform: translateY(0);
+            }
+
+            .nav-items a {
+                margin: 15px 50px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .nav-close-btn {
+                position: absolute;
+                background: url(https://raw.githubusercontent.com/llnmntbln/pics/main/close.png)no-repeat;
+                background-size: 12px;
+                background-position: center;
+                width: 40px;
+                height: 40px;
+                top: 0;
+                right: 0;
+                margin: 10px;
+                cursor: pointer;
+            }
+
+            .nav-menu-btn {
+                background: url(https://raw.githubusercontent.com/llnmntbln/pics/main/menu.png)no-repeat;
+                filter: var(--color-filter);
+                background-size: 30px;
+                background-position: center;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                display: block;
+            }
+
+            .home .home-container .info {
+                font-size: 0.85rem;
+            }
+
+            .footer-distributed {
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 730px) {
+
+            body {
+                margin: 5rem 0 0 0;
+            }
+        }
+
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        main {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            color:rgb(88, 88, 88);
+            font-size: 12.5rem;
+            letter-spacing: 0.1em;
+            margin: 0.025em 0;
+            text-shadow: 0.05em 0.05em 0 #1fb9b0;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 30rem) {
+            h1 {
+                font-size: 8.5rem;
+            }
+        }
+
+        h1 span {
+            -webkit-animation: spooky 2s alternate infinite linear;
+            animation: spooky 2s alternate infinite linear;
+            color: rgb(199, 199, 199);
+            display: inline-block;
+        }
+
+        h2 {
+            color: #1fb9b0;
+            margin-bottom: 0.4em;
+        }
+
+        p {
+            color: rgb(88, 88, 88);
+            margin-top: 0;
+        }
+
+        @-webkit-keyframes spooky {
+            from {
+                transform: translatey(0.15em) scaley(0.95);
+            }
+
+            to {
+                transform: translatey(-0.15em);
+            }
+        }
+
+        @keyframes spooky {
+            from {
+                transform: translatey(0.15em) scaley(0.95);
+            }
+
+            to {
+                transform: translatey(-0.15em);
+            }
+        }
+    </style>
+
+<body style="height: 100%">
+    <header>
+        <div class="nav-bar">
+            <a href="#footer" class="logo">Allen</a>
+            <div class="navigation">
+                <div class="nav-items">
+                    <div class="nav-close-btn"></div>
+                    <a class="active" href="c:\Users\PC\Desktop\-\LeMontablan.html">Home</a>
+                </div>
+            </div>
+            <div class="nav-menu-btn"></div>
+        </div>
+    </header>
+    <section class="home flex-center" id="home">
+        <div class="home-container">
+            <div class="media-icons">
+                <h1>4<span><i class="fas fa-ghost"></i></span>4</h1>
+                <h2>Error: 404 page not found</h2>
+                <p>Oops, the page you're looking for cannot be accessed or doesn't exist.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-distributed" id="footer">
+        <div class="footer-left">
+            <h3>Montablan<span> Allen</span></h3>
+            <p class="footer-company-name">Bachelor of Science in Information Technology 3-1</p>
+            <p class="footer-links">
+                <a href="#home" class="link-1">Home</a>
+            </p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Block 16 Lot 21 Imperial Homes Subdivision</span> San Vicente Sto.Tomas, Batangas</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+63 9984095015</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p>montablanallen@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span></span>
+                Greetings! Feel free to get in touch with me and share your thoughts about my website. Thank you, and
+                have a wonderful day!
+            </p>
+            <div class="footer-icons">
+
+                <a href="https://www.facebook.com/allen.montablan.1" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/llnmntbln" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/llnmntbln/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/llnmntbln" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+        let header = document.querySelector("header");
+        window.onscroll = () => {
+
+            let pos = document.documentElement.scrollTop;
+            if (pos > 0) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            };
+        };
+
+        const menuBtn = document.querySelector(".nav-menu-btn");
+        const closeBtn = document.querySelector(".nav-close-btn");
+        const navigation = document.querySelector(".navigation");
+        const navItems = document.querySelectorAll(".nav-items a");
+
+        menuBtn.addEventListener("click", () => {
+            navigation.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            navigation.classList.remove("active");
+        });
+
+        navItems.forEach((navItem) => {
+            navItem.addEventListener("click", () => {
+                navigation.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
